@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -24,6 +25,8 @@ public class EmployeeManagement {
     PIMPage pimPage = new PIMPage(driver);
     // définir une instance de classe ClaimPage
     ClaimPage claimPage = new ClaimPage(driver);
+    // définir une instance de classe VacancyPage
+    VacancyPage vacancyPage = new VacancyPage(driver);
 
     @Given("je suis sur l'interface login")
     public void je_suis_sur_l_interface_login() {
@@ -342,5 +345,116 @@ public class EmployeeManagement {
         Thread.sleep(8000);
         String url = driver.getCurrentUrl();
         Assert.assertTrue(url.contains("id"));
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+    // Scenarios Add Vacancy
+    @And("je clique sur Recruitment en menu items")
+    public void jeCliqueSurRecruitmentEnMenuItems() {
+        try {
+            vacancyPage.ClickRecruitmentLink();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("je clique sur Recruitment en menu items");
+    }
+
+    @And("je clique sur le lien Vacancies en navbar")
+    public void jeCliqueSurLeLienVacanciesEnNavbar() {
+        try {
+            vacancyPage.ClickVacanciesLink();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("je clique sur le lien Vacancies en navbar");
+    }
+
+    @And("je saisie Vacancy Name {string}")
+    public void jeSaisieVacancyNameVacanyname(String vacanyname) {
+        try {
+            vacancyPage.SaisirVacancyName(vacanyname);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("je saisie Vacancy Name: " + vacanyname);
+    }
+
+    @And("je sélectionne Job Title {string}")
+    public void jeSélectionneJobTitleJobtitle(String jobtitle) {
+        try {
+            vacancyPage.SelectionJobTitle(jobtitle);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("je sélectionne Job Title: " + jobtitle);
+    }
+
+    @And("je saisie Description {string}")
+    public void jeSaisieDescriptionDescription(String description) {
+        try {
+            vacancyPage.SaisirDescription(description);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("je saisie Description: " + description);
+    }
+
+    @And("je saisie Hiring Manager {string}")
+    public void jeSaisieHiringManagerManager(String manager) {
+        try {
+            vacancyPage.SaisirHiringManager(manager);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("je saisie Hiring Manager: " + manager);
+    }
+
+    @And("je saisie Number of Positions {string}")
+    public void jeSaisieNumberOfPositionsNumber(String number) {
+        try {
+            // Vérifier si l'entrée est vide
+            if (number.trim().isEmpty()) {
+                System.out.println("⚠ Number of Positions est vide, aucun envoi de valeur.");
+                throw new IllegalArgumentException("❌ Erreur : Le champ 'Number of Positions' est vide !");
+            }
+            // Si l'entrée est alphanumérique (exemple: "50jk"), afficher un message mais continuer
+            if (!number.matches("[0-9a-zA-Z]+")) {  // autoriser les chiffres et lettres (alphanumérique)
+                System.out.println("❌ Erreur : 'Number of Positions' ne doit pas contenir de caractères spéciaux ou autres symboles ! Valeur fournie: " + number);
+                System.out.println("⚠ Continuer avec l'entrée '" + number + "' même si elle est invalide.");
+            }
+            // Si l'entrée est numérique (un entier valide), on la convertit et la saisit
+            if (number.matches("\\d+")) {
+                vacancyPage.SaisirNumberPositions(number);  // Ici on suppose que la méthode attend un nombre
+                System.out.println("✅ Je saisis Number of Positions (entier valide) : " + number);
+            } else {
+                // Sinon, traiter l'entrée comme une chaîne (par exemple "50jk")
+                vacancyPage.SaisirNumberPositions(number);
+                System.out.println("⚠ Je saisis Number of Positions avec une entrée non entière : " + number);
+            }
+        } catch (IllegalArgumentException e) {
+            System.err.println("⛔ Test interrompu : " + e.getMessage());
+            System.out.println("⚠ Le test continue malgré l'erreur.");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Then("Vacancy ajouté avec succès")
+    public void vacancyAjoutéAvecSuccès() {
+        // Attendre un temps de 7s pour charger la page
+        try {
+            Thread.sleep(7000);
+            WebElement SpanWebElement = vacancyPage.GetEditVacancySpan();
+            String span = SpanWebElement.getText();
+            Assert.assertTrue(SpanWebElement.isDisplayed());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        // fermeture de driver
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

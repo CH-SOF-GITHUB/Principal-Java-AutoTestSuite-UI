@@ -1,5 +1,6 @@
 package OrangeHRM.PageModels;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -107,7 +108,9 @@ public class ClaimPage {
         String Accommodation = AccommodationOption.getText();
         String MedicalReimbursement = MedicalReimbursementOption.getText();
         String TravelAllowance = TravelAllowanceOption.getText();
-        if (Accommodation.equals(event)) {
+        if (event.equals("")) {
+            CurrencySelectIcon = driver.findElement(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]"));
+        } else if (Accommodation.equals(event)) {
             AccommodationOption.click();
             Thread.sleep(2000);
         } else if (MedicalReimbursement.equals(event)) {

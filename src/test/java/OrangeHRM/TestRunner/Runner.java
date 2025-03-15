@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/OrangeHRM/Features/EmployeeManagement.feature",
         glue = "OrangeHRM.StepDefinitions",
-        tags = "@CreateClaimRequest",
+        tags = "@AddVacancy",
         plugin = {"pretty", "html:target\\cucmber\\rapport.html"}
 )
 public class Runner {
