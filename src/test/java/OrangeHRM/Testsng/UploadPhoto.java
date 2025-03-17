@@ -14,6 +14,7 @@ public class UploadPhoto extends Base {
 
     @Test
     public void TestUploadPhoto() throws InterruptedException {
+        WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
         PIMPage pimPage = new PIMPage(driver);
         // connecter et rediriger vers le tableau du board

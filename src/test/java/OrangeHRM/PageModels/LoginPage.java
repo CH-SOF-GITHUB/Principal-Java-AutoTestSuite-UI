@@ -35,4 +35,27 @@ public class LoginPage {
     public void clickLogin() {
         loginButton.click();
     }
+
+    // définir les web élèments de la page login herokuapp
+    @FindBy(className = "success")
+    WebElement successMessage;
+    @FindBy(className = "error")
+    WebElement errorMessage;
+    @FindBy(className = "fa-sign-in")
+    WebElement signInButton;
+
+    // définir les méthodes des actions des web élèments
+    public void ClickToLogin() {
+        signInButton.click();
+    }
+
+    public String getSuccessMessage() {
+        return successMessage.getText();
+    }
+
+    // messages possibles:  Your username is invalid! || Your password is invalid!
+    public String getErrorMessage() {
+        return errorMessage.getText();
+    }
+
 }
