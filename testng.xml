@@ -3,10 +3,9 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/chaker/IdeaProjects/Automation_Tests_v_01">
         <classes>
-            <class name="OrangeHRM.Testsng.TestLogin1">
+            <class name="OrangeHRM.Testsng.TestDataDriven.Login">
                 <methods>
-                    <include name="Test1"/>
-                    <include name="Login"/>
+                    <include name="Test_Login"/>
                 </methods>
             </class>
         </classes>

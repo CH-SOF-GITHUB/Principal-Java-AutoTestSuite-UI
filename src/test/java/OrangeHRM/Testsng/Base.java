@@ -27,14 +27,14 @@ public class Base {
         return driver.get();
     }
 
-    @BeforeTest
+    @BeforeMethod
     public void AvantTest() {
         System.out.println("Avant chaque Test");
         // controle et ouverture d'un navigateur chrome
         driver.set(new ChromeDriver());
     }
 
-    @AfterTest
+    @AfterMethod
     public void ApresTest() {
         if (driver != null) {
             getDriver().quit();
