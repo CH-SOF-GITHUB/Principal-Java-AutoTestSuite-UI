@@ -9,31 +9,33 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.HelperClass;
 
 import java.time.Duration;
 
 public class EmployeeManagement {
     // définir un web driver: controle et ouverture d'un navigateur chrome
-    WebDriver driver = new ChromeDriver();
+    // WebDriver driver = new ChromeDriver();
     // définir une instance de classe LoginPage
-    LoginPage loginPage = new LoginPage(driver);
+    LoginPage loginPage = new LoginPage(HelperClass.getDriver());
     // définir une instance de classe Logout
-    LogoutPage logoutPage = new LogoutPage(driver);
+    LogoutPage logoutPage = new LogoutPage(HelperClass.getDriver());
     // définir une instance de classe AdminPage
-    AdminPage adminPage = new AdminPage(driver);
+    AdminPage adminPage = new AdminPage(HelperClass.getDriver());
     // définir une instance de classe PIMPage
-    PIMPage pimPage = new PIMPage(driver);
+    PIMPage pimPage = new PIMPage(HelperClass.getDriver());
     // définir une instance de classe ClaimPage
-    ClaimPage claimPage = new ClaimPage(driver);
+    ClaimPage claimPage = new ClaimPage(HelperClass.getDriver());
     // définir une instance de classe VacancyPage
-    VacancyPage vacancyPage = new VacancyPage(driver);
+    VacancyPage vacancyPage = new VacancyPage(HelperClass.getDriver());
 
     @Given("je suis sur l'interface login")
     public void je_suis_sur_l_interface_login() {
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        driver.manage().window().maximize();
+        HelperClass.openPage("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        //driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        //driver.manage().window().maximize();
         // définir l'attente implicite de 10 s avant de lancer une exception
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @When("je saisie username {string}")
@@ -58,7 +60,7 @@ public class EmployeeManagement {
     public void connexionAvecSuccèsEtRedirectionVersLeTableauDuBoard() throws InterruptedException {
         // attente time de 3s pour charger la page
         Thread.sleep(3000);
-        String url = driver.getCurrentUrl();
+        String url = HelperClass.getDriver().getCurrentUrl();
         Assert.assertEquals("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index", url);
     }
 
@@ -78,7 +80,7 @@ public class EmployeeManagement {
     public void déconnexionAvecSuccès() throws InterruptedException {
         // attente time de 3s pour charger la page
         Thread.sleep(3000);
-        String url = driver.getCurrentUrl();
+        String url = HelperClass.getDriver().getCurrentUrl();
         Assert.assertEquals("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login", url);
     }
 
@@ -140,10 +142,9 @@ public class EmployeeManagement {
     public void adminAjoutéAvecSuccès() throws InterruptedException {
         // attente time de 8s pour charger la page
         Thread.sleep(8000);
-        String url = driver.getCurrentUrl();
+        String url = HelperClass.getDriver().getCurrentUrl();
         Assert.assertEquals("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers", url);
         //attendre 2s pour fermer le navigateur
-        driver.close();
     }
 
     @And("je clique sur PIM en menu items")
@@ -238,10 +239,9 @@ public class EmployeeManagement {
     public void ajoutEmployéAvecSuccès() throws InterruptedException {
         // attendre time de 8s pour charger la page
         Thread.sleep(8000);
-        String url = driver.getCurrentUrl();
+        String url = HelperClass.getDriver().getCurrentUrl();
         Assert.assertTrue("employé ajouté avec succès", url.contains("viewPersonalDetails"));
         //attendre 2s pour fermer le navigateur
-        driver.close();
     }
 
     @And("je clique sur Reports en Topbar menu")
@@ -293,7 +293,7 @@ public class EmployeeManagement {
     public void employeeReportAjoutéAvecSuccès() throws InterruptedException {
         // attendre time de 8s pour charger la page
         Thread.sleep(8000);
-        String url = driver.getCurrentUrl();
+        String url = HelperClass.getDriver().getCurrentUrl();
         Assert.assertTrue(url.contains("displayPredefinedReport"));
     }
 
@@ -343,11 +343,8 @@ public class EmployeeManagement {
     public void claimRequestCréeAvecSuccès() throws InterruptedException {
         // Attendre un temps de 8s pour charger la page
         Thread.sleep(8000);
-        String url = driver.getCurrentUrl();
+        String url = HelperClass.getDriver().getCurrentUrl();
         Assert.assertTrue(url.contains("id"));
-        if (driver != null) {
-            driver.quit();
-        }
     }
 
     // Scenarios Add Vacancy
@@ -451,10 +448,6 @@ public class EmployeeManagement {
             Assert.assertTrue(SpanWebElement.isDisplayed());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }
-        // fermeture de driver
-        if (driver != null) {
-            driver.quit();
         }
     }
 }
