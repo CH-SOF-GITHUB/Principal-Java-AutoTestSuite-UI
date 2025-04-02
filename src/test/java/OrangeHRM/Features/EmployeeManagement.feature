@@ -2,7 +2,7 @@ Feature: Tester les fonctionnalités connexion et ajout employé sur le site Ora
 
   Background: tester la connexion avec données valides
     Given je suis sur l'interface login
-    When je saisie username "Admin"
+    When je saisie username "Admint"
     And je saisie password "admin123"
     And je clique sur le bouton Login
     Then connexion avec succès et redirection vers le tableau du board
