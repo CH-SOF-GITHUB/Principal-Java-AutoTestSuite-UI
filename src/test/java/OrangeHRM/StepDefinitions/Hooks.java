@@ -29,8 +29,8 @@ public class Hooks {
             //String screenshotName = scenario.getName().replaceAll(" ", "_") + ".png";
             takeScreenShot(HelperClass.getDriver(), "C:\\Users\\chaker\\IdeaProjects\\Automation_Tests_v_01\\src\\test\\java\\OrangeHRM\\Bugs" + scenario.getName() + ".png");
             // Vérifier si le fichier existe avant de l'attacher au rapport
-            //File screenshot = new File("src/test/java/OrangeHRM/Bugs" + screenshotName);
-            //if (screenshot.exists()) {
+            // File screenshot = new File("src/test/java/OrangeHRM/Bugs" + screenshotName);
+            // if (screenshot.exists()) {
             //    byte[] fileContent = FileUtils.readFileToByteArray(screenshot);
             //    scenario.attach(fileContent, "image/png", screenshotName);
             //}
