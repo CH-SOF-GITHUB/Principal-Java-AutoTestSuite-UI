@@ -20,7 +20,6 @@ public class BasePageObject {
     protected void openURL(String URL) {
         System.out.println("opening URL: " + URL);
         driver.get(URL);
-        driver.manage().window().maximize();
         System.out.println("Page opened!");
     }
     /*
