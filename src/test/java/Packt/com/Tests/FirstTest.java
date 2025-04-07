@@ -7,6 +7,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
+
 public class FirstTest extends BaseTest {
 
     // protected String username = "tomsmith";
@@ -15,15 +17,21 @@ public class FirstTest extends BaseTest {
 
     @Test(priority = 1)
     @Parameters({"username", "password", "browser"})
-    public void TC01(String username, String password, String browser) {
+    public void TC01(String username, String password, String browser) throws IOException {
         System.out.println("Thread: " + Thread.currentThread().getName() + " on Thread ID: " + Thread.currentThread().getId());
         // Votre code de test ici
         SoftAssert softAssert = new SoftAssert();
         LogInPage logInPage = new LogInPage(driver);
         logInPage.open();
+        // take a screenshot opened loginIn page
+        this.takeSnapShot(driver, "src/test/java/Packt/com/screenshots/open_login_In_Page.png");
+
         // login and clicking login button
         SecurePage securePage = logInPage.LogIn(username, password);
         securePage.waitForSecurePage(10000);
+
+        // take a screenshot opened secure page
+        this.takeSnapShot(driver, "src/test/java/Packt/com/screenshots/open_secure_Page.png");
 
         // verifications
         softAssert.assertTrue(securePage.isSecurePageLoaded(), "Logout button is not visible");

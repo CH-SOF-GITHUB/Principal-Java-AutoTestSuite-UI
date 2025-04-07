@@ -151,12 +151,4 @@ public class Troubleshooting extends BaseTest {
         // fermer le navigateur
         driver.quit();
     }
-
-    public void sleep(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }

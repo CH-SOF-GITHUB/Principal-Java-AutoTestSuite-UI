@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          name="C:/Users/chaker/IdeaProjects/Automation_Tests_v_01/src/test/resources"
-          parallel="tests" thread-count="2">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="Packt.com.Tests.Troubleshooting"/>
-        </classes>
-    </test>
-</suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/chaker/IdeaProjects/Automation_Tests_v_01"><classes><class name="Exceptions.ElementNotInteractableException"><methods><include name="verifyPageTitleExample1"/><include name="verifyPageTitleExample2"/><include name="verifyPageTitleExample3"/><include name="verifyPageTitleExample4"/><include name="verifyPageTitleExample5"/></methods></class><class name="Exceptions.StaleElementxception"><methods><include name="ExampleTest01"/><include name="Test02"/></methods></class><class name="OrangeHRM.Testsng.BrowserStack.BStackDemoTest"><methods><include name="AddProductToCart"/></methods></class><class name="OrangeHRM.Testsng.TestDataDriven.Login"><methods><include name="Test_Login"/></methods></class><class name="OrangeHRM.Testsng.TestLogin1"><methods><include name="Test1"/><include name="Login"/></methods></class><class name="OrangeHRM.Testsng.UploadPhoto"><methods><include name="TestUploadPhoto"/></methods></class><class name="Packt.com.Tests.AdvancedInteractions"><methods><include name="OpenNewWindowTest"/></methods></class></classes></test></suite>

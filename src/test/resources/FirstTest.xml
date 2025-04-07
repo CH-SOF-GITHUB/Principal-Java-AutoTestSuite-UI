@@ -9,10 +9,10 @@
             <class name="Packt.com.Tests.FirstTest"/>
         </classes>
     </test>
-    <test name="Test avec parameters firefox">
+    <test name="Test avec parameters edge">
         <parameter name="username" value="tomsmith"/>
         <parameter name="password" value="SuperSecretPassword!"/>
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="edge"/>
         <classes>
             <class name="Packt.com.Tests.FirstTest"/>
         </classes>

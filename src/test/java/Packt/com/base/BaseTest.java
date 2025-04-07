@@ -64,14 +64,29 @@ public class BaseTest {
 
 
     // Write a method to take screenshots like below
-    public void takeSnapShot(WebDriver webdriver, String fileWithPath) throws StaleElementReferenceException, IOException {
+    protected void takeSnapShot(WebDriver webdriver, String fileWithPath) throws StaleElementReferenceException, IOException {
         //Convert web driver object to TakeScreenshot
         TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
         //Call getScreenshotAs method to create image file
         File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
         //Move image file to new destination
         File DestFile = new File(fileWithPath);
-        //Copy file at destination
-        FileUtils.copyFile(SrcFile, DestFile);
+        try {
+            //Copy file at destination
+            FileUtils.copyFile(SrcFile, DestFile);
+        } catch (IOException e) {
+            System.out.println("Error taking screenshot: " + e.getMessage());
+        }
+
     }
+
+    // write a method to wait for a specific time
+    public void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
