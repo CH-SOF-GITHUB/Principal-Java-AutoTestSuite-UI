@@ -93,21 +93,26 @@ public class AdvancedInteractions extends BaseTest {
         }
 
         // first switch to the iframe
-        WebElement iframe = driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(iframe);
+        WebElement iFrame = driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iFrame);
         System.out.println("Switched to iframe!");
 
         // wait for 3 seconds to handle text
         sleep(3000);
 
         // wait for the text area to be visible and interactable
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement textArea = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body[@id='tinymce']/p")));
+
         try {
-            WebElement textArea = driver.findElement(By.id("tinymce"));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '<p>Hello World!</p>';", textArea);
-            sleep(5000);
-            System.out.println("Modify iframe passed");
+            textArea.clear();
         } catch (Exception e) {
-            System.out.println("Unable to modify iframe content: " + e.getMessage());
+            System.out.println("Error test: " + e.getMessage());
         }
+
+        // javascript to enter text in the iframe
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '<p>Hello World!</p>';", textArea);
+        sleep(5000);
+        System.out.println("Modify iframe passed");
     }
 }

@@ -4,9 +4,9 @@
     <test name="Switch_To_New_Window-Test">
         <parameter name="browser" value="chrome">
             <classes>
-                <class name="Packt.com.Tests.FirstTest">
+                <class name="Packt.com.Tests.AdvancedInteractions">
                     <methods>
-                        <include name="TC01"/>
+                        <include name="iframeTest"/>
                     </methods>
                 </class>
             </classes>
