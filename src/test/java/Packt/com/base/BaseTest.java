@@ -55,7 +55,6 @@ public class BaseTest {
     @DataProvider(name = "dataLogin")
     public Object[][] Data() {
         return new Object[][]{
-                {"tomsmith", "SuperSecretPassword!", "You logged into a secure area!"},
                 {"tomsmith", "SuperSecretPassword", "Your password is invalid!"},
                 {"toms", "SuperSecretPassword!", "Your username is invalid!"},
                 {"toms", "SuperSecretPassword", "Your username is invalid!"}

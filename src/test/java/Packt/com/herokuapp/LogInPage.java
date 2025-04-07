@@ -26,6 +26,10 @@ public class LogInPage extends BasePageObject {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
 
+    By errorMessageLocator = By.id("flash-messages");
+    //@FindBy(id = "flash-messages")
+    //private WebElement errorMessages;
+
     public SecurePage LogIn(String username, String password) {
         System.out.println("Entering username and password");
         usernameField.sendKeys(username);
@@ -33,6 +37,29 @@ public class LogInPage extends BasePageObject {
         System.out.println("Clicking Login button");
         loginButton.click();
         return new SecurePage(driver);
+    }
+
+    public void NegativeLogIn(String username, String password) {
+        System.out.println("Entering username and password");
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        System.out.println("Clicking Login button");
+        loginButton.click();
+
+        visibilityOfErrorMessages();
+    }
+
+    public void visibilityOfErrorMessages() {
+        System.out.println("Visibility of error messages");
+        waitForVisibilityOf(errorMessageLocator, 10);
+    }
+
+    public WebElement findErrorMessages() {
+        return driver.findElement(errorMessageLocator);
+    }
+
+    public String ErrorMessagesText() {
+        return findErrorMessages().getText();
     }
 
     public void open() {
