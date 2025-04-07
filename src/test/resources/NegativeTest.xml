@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Packt-Negative-Test">
-    <test name="Negative Test avec parameters chrome">
+    <test name="Negative-Tests-Data-Provider-CSV avec parameters chrome">
         <parameter name="browser" value="chrome">
             <classes>
-                <class name="Packt.com.Tests.NegativeTest"/>
+                <class name="Packt.com.Tests.NegativeTest">
+                    <methods>
+                        <include name="negativeCsvTest"/>
+                    </methods>
+                </class>
             </classes>
         </parameter>
     </test>
