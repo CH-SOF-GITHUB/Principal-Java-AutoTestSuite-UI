@@ -1,5 +1,6 @@
 package Packt.com.base;
 
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -9,16 +10,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
+
 
 // Cross Browser Testing
 public class BaseTest {
     // open a new web driver
     protected WebDriver driver;
 
+    // create a logger:  ITestContext ctx
+
+    // set up the driver according to the browser
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void setUp(@Optional("chrome") String browser) {
@@ -29,6 +35,8 @@ public class BaseTest {
         } catch (Exception e) {
             System.out.println("[setting up driver failed" + browser + " ] :  " + e.getMessage());
         }
+        //String testName = ctx.getCurrentXmlTest().getName();
+
     }
 
     @AfterMethod(alwaysRun = true)

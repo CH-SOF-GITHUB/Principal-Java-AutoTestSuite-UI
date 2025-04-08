@@ -374,3 +374,38 @@
 15:43:07.821 [ApplicationImpl pooled thread 160] INFO  c.b.l.BrowserStackRunExtension - testng
 15:43:07.823 [ApplicationImpl pooled thread 160] INFO  com.browserstack.utils.Helpers - null
 15:43:07.823 [ApplicationImpl pooled thread 160] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+15:59:57.243 [ApplicationImpl pooled thread 174] INFO  c.b.l.BrowserStackRunExtension - testng
+15:59:57.243 [ApplicationImpl pooled thread 174] INFO  com.browserstack.utils.Helpers - null
+15:59:57.246 [ApplicationImpl pooled thread 174] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:05:35.732 [ApplicationImpl pooled thread 174] INFO  c.b.l.BrowserStackRunExtension - testng
+16:05:35.732 [ApplicationImpl pooled thread 174] INFO  com.browserstack.utils.Helpers - null
+16:05:35.732 [ApplicationImpl pooled thread 174] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:11:25.087 [ApplicationImpl pooled thread 175] INFO  c.b.l.BrowserStackRunExtension - maven
+16:11:25.087 [ApplicationImpl pooled thread 175] INFO  com.browserstack.utils.Helpers - null
+16:12:32.399 [ApplicationImpl pooled thread 183] INFO  c.b.l.BrowserStackRunExtension - testng
+16:12:32.399 [ApplicationImpl pooled thread 183] INFO  com.browserstack.utils.Helpers - null
+16:12:32.399 [ApplicationImpl pooled thread 183] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:15:53.094 [ApplicationImpl pooled thread 187] INFO  c.b.l.BrowserStackRunExtension - testng
+16:15:53.094 [ApplicationImpl pooled thread 187] INFO  com.browserstack.utils.Helpers - null
+16:15:53.095 [ApplicationImpl pooled thread 187] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:34:33.149 [ApplicationImpl pooled thread 202] INFO  c.b.l.BrowserStackRunExtension - testng
+16:34:33.149 [ApplicationImpl pooled thread 202] INFO  com.browserstack.utils.Helpers - null
+16:34:33.150 [ApplicationImpl pooled thread 202] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:37:41.752 [ApplicationImpl pooled thread 207] INFO  c.b.l.BrowserStackRunExtension - testng
+16:37:41.752 [ApplicationImpl pooled thread 207] INFO  com.browserstack.utils.Helpers - null
+16:37:41.753 [ApplicationImpl pooled thread 207] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:38:16.168 [ApplicationImpl pooled thread 207] INFO  c.b.l.BrowserStackRunExtension - testng
+16:38:16.168 [ApplicationImpl pooled thread 207] INFO  com.browserstack.utils.Helpers - null
+16:38:16.169 [ApplicationImpl pooled thread 207] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:40:12.203 [ApplicationImpl pooled thread 204] INFO  c.b.l.BrowserStackRunExtension - testng
+16:40:12.204 [ApplicationImpl pooled thread 204] INFO  com.browserstack.utils.Helpers - null
+16:40:12.204 [ApplicationImpl pooled thread 204] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:41:10.300 [ApplicationImpl pooled thread 211] INFO  c.b.l.BrowserStackRunExtension - testng
+16:41:10.300 [ApplicationImpl pooled thread 211] INFO  com.browserstack.utils.Helpers - null
+16:41:10.301 [ApplicationImpl pooled thread 211] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:42:26.389 [ApplicationImpl pooled thread 211] INFO  c.b.l.BrowserStackRunExtension - testng
+16:42:26.389 [ApplicationImpl pooled thread 211] INFO  com.browserstack.utils.Helpers - null
+16:42:26.390 [ApplicationImpl pooled thread 211] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:45:28.387 [ApplicationImpl pooled thread 212] INFO  c.b.l.BrowserStackRunExtension - testng
+16:45:28.387 [ApplicationImpl pooled thread 212] INFO  com.browserstack.utils.Helpers - null
+16:45:28.388 [ApplicationImpl pooled thread 212] INFO  c.b.l.BrowserStackRunExtension - Agent path: null

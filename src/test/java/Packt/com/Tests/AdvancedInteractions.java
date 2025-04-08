@@ -23,14 +23,16 @@ public class AdvancedInteractions extends BaseTest {
         Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
     }
 
-    @Test
+    protected Logger log = Logger.getLogger(AdvancedInteractions.class.getName());
+
+    @Test(priority = 1)
     @Parameters("browser")
     public void switchWindowTest(String browser) throws InterruptedException {
         // display the browser name
-        System.out.println("[Browser opened: ] + " + browser);
+        log.info("[Browser opened: ] + " + browser);
         // opening page
         driver.get("https://the-internet.herokuapp.com/windows");
-        System.out.println("page opened!");
+        log.info("page opened!");
 
         // wait for 1 seconds to handle page response
         sleep(1000);
@@ -44,8 +46,8 @@ public class AdvancedInteractions extends BaseTest {
         // get page title and url after clicking the link
         String title = driver.getTitle();
         String url = driver.getCurrentUrl();
-        System.out.println("Page Title after click link: " + title);
-        System.out.println("Page URL after click link: " + url);
+        log.info("Page Title after click link: " + title);
+        log.info("Page URL after click link: " + url);
 
         // switch to the new window
         // get handle of the first window
@@ -64,21 +66,19 @@ public class AdvancedInteractions extends BaseTest {
         //  compare page title and url after switch to new window
         title = driver.getTitle();
         url = driver.getCurrentUrl();
-        System.out.println("Page Title after switch new window: " + title);
-        System.out.println("Page URL after switch new window: " + url);
-
-
+        log.info("Page Title after switch new window: " + title);
+        log.info("Page URL after switch new window: " + url);
     }
 
 
-    @Test
+    @Test(priority = 2)
     @Parameters("browser")
     public void iframeTest(String browser) {
         // display the browser name
-        System.out.println("[Browser : ] + " + browser);
+        log.info("[Browser : ] + " + browser);
         // open page
         driver.get("https://the-internet.herokuapp.com/iframe");
-        System.out.println("page opened!");
+        log.info("page opened!");
 
         // wait for 3 seconds to handle page response
         sleep(3000);
@@ -87,32 +87,32 @@ public class AdvancedInteractions extends BaseTest {
         try {
             WebElement closeAlert = driver.findElement(By.xpath("/html/body/div[4]/div/div/button"));
             closeAlert.click();
-            System.out.println("Alert closed!");
+            log.info("Alert closed!");
         } catch (Exception e) {
-            System.out.println("Alert not found: " + e.getMessage());
+            log.warning("Alert not found: " + e.getMessage());
         }
 
         // first switch to the iframe
         WebElement iFrame = driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(iFrame);
-        System.out.println("Switched to iframe!");
+        log.info("Switched to iframe!");
 
         // wait for 3 seconds to handle text
         sleep(3000);
 
         // wait for the text area to be visible and interactable
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement textArea = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body[@id='tinymce']/p")));
+        WebElement textArea = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tinymce")));
 
         try {
             textArea.clear();
         } catch (Exception e) {
-            System.out.println("Error test: " + e.getMessage());
+            log.warning("Error test: " + e.getMessage());
         }
 
         // javascript to enter text in the iframe
         ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '<p>Hello World!</p>';", textArea);
         sleep(5000);
-        System.out.println("Modify iframe passed");
+        log.info("Modify iframe passed");
     }
 }
