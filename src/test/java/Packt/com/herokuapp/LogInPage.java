@@ -39,6 +39,16 @@ public class LogInPage extends BasePageObject {
         return new SecurePage(driver);
     }
 
+    // positive test
+    public SecurePage PositiveLogIn(String username, String password) {
+        System.out.println("Entering username and password");
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        System.out.println("positive Clicking Login button");
+        loginButton.click();
+        return new SecurePage(driver);
+    }
+
     public void NegativeLogIn(String username, String password) {
         System.out.println("Entering username and password");
         usernameField.sendKeys(username);

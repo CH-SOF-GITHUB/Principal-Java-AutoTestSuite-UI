@@ -1,6 +1,7 @@
 package Packt.com.Tests;
 
 import Packt.com.base.BaseTest;
+import Packt.com.base.CsvDataProvider;
 import Packt.com.herokuapp.LogInPage;
 import Packt.com.herokuapp.SecurePage;
 import org.testng.annotations.Parameters;
@@ -8,6 +9,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FirstTest extends BaseTest {
 

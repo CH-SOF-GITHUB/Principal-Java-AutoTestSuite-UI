@@ -61,7 +61,6 @@ public class BaseTest {
         };
     }
 
-
     // Write a method to take screenshots like below
     protected void takeSnapShot(WebDriver webdriver, String fileWithPath) throws StaleElementReferenceException, IOException {
         //Convert web driver object to TakeScreenshot
@@ -76,7 +75,6 @@ public class BaseTest {
         } catch (IOException e) {
             System.out.println("Error taking screenshot: " + e.getMessage());
         }
-
     }
 
     // write a method to wait for a specific time
