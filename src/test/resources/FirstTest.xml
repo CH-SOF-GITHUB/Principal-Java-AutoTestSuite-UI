@@ -6,15 +6,11 @@
         <parameter name="password" value="SuperSecretPassword!"/>
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="Packt.com.Tests.FirstTest"/>
-        </classes>
-    </test>
-    <test name="Test avec parameters edge">
-        <parameter name="username" value="tomsmith"/>
-        <parameter name="password" value="SuperSecretPassword!"/>
-        <parameter name="browser" value="edge"/>
-        <classes>
-            <class name="Packt.com.Tests.FirstTest"/>
+            <class name="Packt.com.Tests.FirstTest">
+                <methods>
+                    <include name="TC01"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

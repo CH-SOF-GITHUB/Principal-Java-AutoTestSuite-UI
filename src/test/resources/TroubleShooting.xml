@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Trouble Shooting Tests">
+    <parameter name="browser" value="chrome"/>
+    <test name="Tests for wait exceptions">
+        <classes>
+            <class name="Packt.com.Tests.Troubleshooting">
+                <methods>
+                    <include name="waitTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

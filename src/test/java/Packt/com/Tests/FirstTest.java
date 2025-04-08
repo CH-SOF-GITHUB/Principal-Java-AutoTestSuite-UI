@@ -11,8 +11,14 @@ import org.testng.asserts.SoftAssert;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FirstTest extends BaseTest {
+    // Cache les logs erreurs sauf les erreurs critiques
+    static {
+        Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
+    }
 
     // protected String username = "tomsmith";
     // protected String password = "SuperSecretPassword!";
@@ -21,20 +27,21 @@ public class FirstTest extends BaseTest {
     @Test(priority = 1)
     @Parameters({"username", "password", "browser"})
     public void TC01(String username, String password, String browser) throws IOException {
+        // Thread name and id
         System.out.println("Thread: " + Thread.currentThread().getName() + " on Thread ID: " + Thread.currentThread().getId());
         // Votre code de test ici
         SoftAssert softAssert = new SoftAssert();
         LogInPage logInPage = new LogInPage(driver);
         logInPage.open();
         // take a screenshot opened loginIn page
-        this.takeSnapShot(driver, "src/test/java/Packt/com/screenshots/open_login_In_Page.png");
+        this.takeSnapShot(driver, "src/test/java/Packt/com/screenshots/open_login_In_Page_with_" + browser + ".png");
 
         // login and clicking login button
         SecurePage securePage = logInPage.LogIn(username, password);
         securePage.waitForSecurePage(10000);
 
         // take a screenshot opened secure page
-        this.takeSnapShot(driver, "src/test/java/Packt/com/screenshots/open_secure_Page.png");
+        this.takeSnapShot(driver, "src/test/java/Packt/com/screenshots/open_secure_Page_with_" + browser + ".png");
 
         // verifications
         softAssert.assertTrue(securePage.isSecurePageLoaded(), "Logout button is not visible");

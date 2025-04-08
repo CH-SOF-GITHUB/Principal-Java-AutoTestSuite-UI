@@ -20,7 +20,7 @@ public class Troubleshooting extends BaseTest {
     static {
         Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
     }
-    /*
+
     @Test
     @Parameters({"browser"})
     public void waitTest(String browser) {
@@ -50,7 +50,7 @@ public class Troubleshooting extends BaseTest {
         } finally {
             driver.quit();
         }
-    }*/
+    }
 
     /*
     @Test(priority = 2)
@@ -77,12 +77,12 @@ public class Troubleshooting extends BaseTest {
         System.out.println("Is start button visible after clicking: " + startButton.isDisplayed());
     }
     */
-
+    /*
     @Test(priority = 3)
     @Parameters({"browser"})
-    public void staleElementTest(String browser) {
+    public void staleElementTest() {
         // opening page
-        driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
+        driver.get("https://the-internet.herokuapp.com/notification_message_rendered");
         System.out.println("page opened !");
 
         // click on the link
@@ -150,5 +150,5 @@ public class Troubleshooting extends BaseTest {
 
         // fermer le navigateur
         driver.quit();
-    }
+    }*/
 }

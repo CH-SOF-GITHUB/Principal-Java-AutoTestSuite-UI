@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LogIn Cross Browser Testing suite">
+    <parameter name="username" value="tomsmith"/>
+    <parameter name="password" value="SuperSecretPassword!"/>
+    <test name="test with parameter browser chrome">
+        <parameter name="browser" value="chrome">
+            <classes>
+                <class name="Packt.com.Tests.FirstTest">
+                    <methods>
+                        <include name="TC01"/>
+                    </methods>
+                </class>
+            </classes>
+        </parameter>
+    </test>
+    <test name="test with parameter browser firefox">
+        <parameter name="browser" value="firefox">
+            <classes>
+                <class name="Packt.com.Tests.FirstTest">
+                    <methods>
+                        <include name="TC01"/>
+                    </methods>
+                </class>
+            </classes>
+        </parameter>
+    </test>
+    <test name="test with parameter browser edge">
+        <parameter name="browser" value="edge">
+            <classes>
+                <class name="Packt.com.Tests.FirstTest">
+                    <methods>
+                        <include name="TC01"/>
+                    </methods>
+                </class>
+            </classes>
+        </parameter>
+    </test>
+</suite>

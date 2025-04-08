@@ -22,23 +22,11 @@ public class BaseTest {
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void setUp(@Optional("chrome") String browser) {
-        // creating a driver
-        System.out.println("[setting up driver: " + browser + " ]");
-        // and here we can add some code to use this browser variable
-        if (browser.equalsIgnoreCase("chrome")) {
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-        } else if (browser.equalsIgnoreCase("firefox")) {
-            driver = new FirefoxDriver();
-            driver.manage().window().maximize();
-        } else if (browser.equalsIgnoreCase("ie")) {
-            driver = new InternetExplorerDriver();
-            driver.manage().window().maximize();
-        } else if (browser.equalsIgnoreCase("edge")) {
-            driver = new EdgeDriver();
-            driver.manage().window().maximize();
-        } else {
-            System.out.println("[setting up driver failed" + browser + " ]");
+        // create a web driver follow to browser
+        try {
+            driver = BrowserDriverFactory.createDriver(browser);
+        } catch (Exception e) {
+            System.out.println("[setting up driver failed" + browser + " ] :  " + e.getMessage());
         }
     }
 
