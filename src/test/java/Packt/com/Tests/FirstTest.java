@@ -27,8 +27,6 @@ public class FirstTest extends BaseTest {
     @Test(priority = 1)
     @Parameters({"username", "password", "browser"})
     public void TC01(String username, String password, String browser) throws IOException {
-        // Thread name and id
-        System.out.println("Thread: " + Thread.currentThread().getName() + " on Thread ID: " + Thread.currentThread().getId());
         // Votre code de test ici
         SoftAssert softAssert = new SoftAssert();
         LogInPage logInPage = new LogInPage(driver);
@@ -47,5 +45,8 @@ public class FirstTest extends BaseTest {
         softAssert.assertTrue(securePage.isSecurePageLoaded(), "Logout button is not visible");
         softAssert.assertTrue(securePage.getPageSource().contains("You logged into a secure area!"), "Page source doesn't contain expected text: 'You logged into a secure area!'");
         softAssert.assertAll();
+
+        // Thread name and id
+        System.out.println("Thread: " + Thread.currentThread().getName() + " on Thread ID: " + Thread.currentThread().getId());
     }
 }

@@ -8,33 +8,40 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class BrowserDriverFactory {
 
-    public BrowserDriverFactory() {
+    private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+    private String browser = "";
+
+    public BrowserDriverFactory(String browser) {
+        this.browser = browser.toLowerCase();
     }
 
-    /**
-     *
-     * @param browser
-     * @return
-     */
-    public static WebDriver createDriver(String browser) {
+    public WebDriver createDriver() {
         // set up browser's driver
         System.out.println("[setting up driver: " + browser + " ]");
         // declare a web driver
-        WebDriver driver;
-
-        browser = browser.toLowerCase();
 
         // set up the driver according to the browser
-        driver = switch (browser) {
-            case "chrome" -> new ChromeDriver();
-            case "firefox" -> new FirefoxDriver();
-            case "edge" -> new EdgeDriver();
-            case "ie" -> new InternetExplorerDriver();
-            default -> null;
-        };
-        if (driver != null) {
-            driver.manage().window().maximize();
+        switch (browser) {
+            case "chrome":
+                driver.set(new ChromeDriver());
+                break;
+            case "firefox":
+                driver.set(new FirefoxDriver());
+                break;
+            case "edge":
+                driver.set(new EdgeDriver());
+                break;
+            case "ie":
+                driver.set(new InternetExplorerDriver());
+                break;
+            default:
+                driver = null;
         }
-        return driver;
+
+        if (driver != null) {
+            driver.get().manage().window().maximize();
+        }
+        // return the driver
+        return driver.get();
     }
 }

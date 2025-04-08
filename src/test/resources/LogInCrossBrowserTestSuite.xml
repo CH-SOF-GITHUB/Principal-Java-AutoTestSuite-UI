@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="LogIn Cross Browser Testing suite">
+<suite name="LogIn Cross Browser Testing suite" parallel="tests" thread-count="3">
     <parameter name="username" value="tomsmith"/>
     <parameter name="password" value="SuperSecretPassword!"/>
     <test name="test with parameter browser chrome">

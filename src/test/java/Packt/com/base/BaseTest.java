@@ -24,7 +24,8 @@ public class BaseTest {
     public void setUp(@Optional("chrome") String browser) {
         // create a web driver follow to browser
         try {
-            driver = BrowserDriverFactory.createDriver(browser);
+            BrowserDriverFactory browserDriverFactory = new BrowserDriverFactory(browser);
+            driver = browserDriverFactory.createDriver();
         } catch (Exception e) {
             System.out.println("[setting up driver failed" + browser + " ] :  " + e.getMessage());
         }
