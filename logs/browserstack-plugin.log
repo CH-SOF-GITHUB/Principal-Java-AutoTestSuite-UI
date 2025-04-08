@@ -409,3 +409,21 @@
 16:45:28.387 [ApplicationImpl pooled thread 212] INFO  c.b.l.BrowserStackRunExtension - testng
 16:45:28.387 [ApplicationImpl pooled thread 212] INFO  com.browserstack.utils.Helpers - null
 16:45:28.388 [ApplicationImpl pooled thread 212] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:55:12.092 [ApplicationImpl pooled thread 217] INFO  c.b.l.BrowserStackRunExtension - testng
+16:55:12.092 [ApplicationImpl pooled thread 217] INFO  com.browserstack.utils.Helpers - null
+16:55:12.093 [ApplicationImpl pooled thread 217] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+16:59:10.818 [ApplicationImpl pooled thread 216] INFO  c.b.l.BrowserStackRunExtension - testng
+16:59:10.819 [ApplicationImpl pooled thread 216] INFO  com.browserstack.utils.Helpers - null
+16:59:10.819 [ApplicationImpl pooled thread 216] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+17:08:07.022 [ApplicationImpl pooled thread 225] INFO  c.b.l.BrowserStackRunExtension - testng
+17:08:07.022 [ApplicationImpl pooled thread 225] INFO  com.browserstack.utils.Helpers - null
+17:08:07.022 [ApplicationImpl pooled thread 225] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+17:09:24.382 [ApplicationImpl pooled thread 227] INFO  c.b.l.BrowserStackRunExtension - testng
+17:09:24.382 [ApplicationImpl pooled thread 227] INFO  com.browserstack.utils.Helpers - null
+17:09:24.382 [ApplicationImpl pooled thread 227] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+17:11:20.540 [ApplicationImpl pooled thread 227] INFO  c.b.l.BrowserStackRunExtension - testng
+17:11:20.540 [ApplicationImpl pooled thread 227] INFO  com.browserstack.utils.Helpers - null
+17:11:20.540 [ApplicationImpl pooled thread 227] INFO  c.b.l.BrowserStackRunExtension - Agent path: null
+17:12:10.737 [ApplicationImpl pooled thread 227] INFO  c.b.l.BrowserStackRunExtension - testng
+17:12:10.737 [ApplicationImpl pooled thread 227] INFO  com.browserstack.utils.Helpers - null
+17:12:10.737 [ApplicationImpl pooled thread 227] INFO  c.b.l.BrowserStackRunExtension - Agent path: null

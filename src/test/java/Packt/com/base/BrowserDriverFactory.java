@@ -16,8 +16,6 @@ public class BrowserDriverFactory {
     }
 
     public WebDriver createDriver() {
-        // set up browser's driver
-        System.out.println("[setting up driver: " + browser + " ]");
         // declare a web driver
 
         // set up the driver according to the browser

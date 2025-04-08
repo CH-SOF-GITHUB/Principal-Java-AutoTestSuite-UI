@@ -1,20 +1,16 @@
 package Packt.com.base;
 
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 
 // Cross Browser Testing
@@ -22,28 +18,34 @@ public class BaseTest {
     // open a new web driver
     protected WebDriver driver;
 
-    // create a logger:  ITestContext ctx
+    // create a logger
+    protected Logger log;
 
     // set up the driver according to the browser
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
-    public void setUp(@Optional("chrome") String browser) {
+    public void setUp(@Optional("chrome") String browser, ITestContext ctx) {
+        // create a logger instance
+        String testName = ctx.getCurrentXmlTest().getName();
+        log = Logger.getLogger(testName);
+
+        // set up browser's driver
+        log.info("[setting up driver: " + browser + " ]");
+
         // create a web driver follow to browser
         try {
             BrowserDriverFactory browserDriverFactory = new BrowserDriverFactory(browser);
             driver = browserDriverFactory.createDriver();
         } catch (Exception e) {
-            System.out.println("[setting up driver failed" + browser + " ] :  " + e.getMessage());
+            log.warning("[setting up driver failed" + browser + " ] :  " + e.getMessage());
         }
-        //String testName = ctx.getCurrentXmlTest().getName();
-
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             // closing driver
-            System.out.println("[closing driver]");
+            log.info("[closing driver]");
             driver.quit();
         }
     }
@@ -70,7 +72,7 @@ public class BaseTest {
             //Copy file at destination
             FileUtils.copyFile(SrcFile, DestFile);
         } catch (IOException e) {
-            System.out.println("Error taking screenshot: " + e.getMessage());
+            log.warning("Error taking screenshot: " + e.getMessage());
         }
     }
 
@@ -79,7 +81,7 @@ public class BaseTest {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            log.warning(e.getMessage());
         }
     }
 

@@ -23,7 +23,7 @@ public class AdvancedInteractions extends BaseTest {
         Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
     }
 
-    protected Logger log = Logger.getLogger(AdvancedInteractions.class.getName());
+    //protected Logger log = Logger.getLogger(AdvancedInteractions.class.getName());
 
     @Test(priority = 1)
     @Parameters("browser")
